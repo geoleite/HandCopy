@@ -1,0 +1,206 @@
+body {
+    background-color: #F0F0F0;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;	
+}
+h3 {
+    font-size: 13px;
+    color:#336699;
+    
+}
+h1 {
+    font-size: 20px;
+    color:#ffc600;
+    
+}
+button {
+    color: #FFFFFF;
+    background-color: #006666;
+    border: thin solid #000000;
+}
+input {
+    font-family: "Trebuchet MS", Arial;
+    font-size: 12px;
+    font-style: normal;
+    line-height: normal;
+    color: #333333;
+    text-decoration: none;
+    font-weight: normal;
+    font-variant: normal;
+    border: 1px solid #999999;
+}
+textarea {
+    font-family: "Trebuchet MS", Arial;
+    font-size: 12px;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-variant: normal;
+    color: #000000;
+    text-decoration: none;
+    border: 1px solid #999999;
+}
+select {
+    font-family: "Trebuchet MS", Arial;
+    font-size: 12px;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-variant: normal;
+    color: #000000;
+    text-decoration: none;
+    border: 1px solid #999999;
+}
+
+
+label {
+    color: #333333;
+    font-size:12;
+    font-style: normal;
+    font-variant: normal;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+#form1 .button {
+    color: #FFFFFF;
+    background-color: #009966;
+}
+a {
+    color: #3366ff;
+    font-size:11;
+}
+a:link {
+    text-decoration: none;
+    color: #3366ff;
+    font-size:11;
+}
+a:visited {
+    text-decoration: none;
+    color: #3366ff;
+    font-size:11;
+}
+a:hover {
+    text-decoration: underline;
+    color: #3366ff;
+    font-size:11;
+}
+a:active {
+    text-decoration: none;
+    color: #3366FF;
+    font-size:11;
+}
+
+
+.tabela {
+    display: table;
+    width: 100%;
+}
+th_numero {
+    text-align:right;
+    font-size:11;
+    color:#336699;
+}
+th, .titulo {
+    text-align:left;
+    font-size:11;
+    color:#336699;
+}
+.list-header {
+    background-color: #eeeeee;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.list-paging-header {
+    background-color: white;
+}
+
+.list-paging-footer {
+    background-color: white;
+}
+
+.list-row-even { 
+}
+
+.list-row-odd { 
+    background-color: #eeeeee;
+}
+
+/* Style rules for message severity levels */
+.barrarelatorio {
+    background-color: gray;
+}
+.cor1 {
+    background-color: silver;
+}
+.cor2 {
+    background-color: white;
+}
+
+.infoMessage {
+    color: black;
+}
+
+.msg {
+    color: teal;
+}
+
+.warnMessage {
+    color: orange;
+    font-weight: bold;
+}
+.errorMessage {
+    color: red;
+    font-weight: bold;
+}
+
+.warMessage {
+    color: orange;
+    font-weight: bold;
+}
+
+.fatalMessage {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.pagebanner, .pagelinks {
+    color:#336699;
+    font-size:11;
+}
+.calendario{
+    color:black;
+    background-color: #ccccFF;    
+}
+.agenda_titulo {
+    color: #336699; 
+    font-weight: bold;  
+    background-color: #ccccFF;    
+    font-size:12;
+}
+.agenda_hoje {
+    color: #336699; 
+    font-weight: bold;  
+    background-color: #ccccFF;        
+}
+.agenda_sessao_marcada {
+    color: #336699; 
+    font-weight: bold;  
+    background-color: FFff00;        
+}
+.linha1 {
+    display: table-row;
+    margin: 1px;
+    border-bottom-color: #00FF33;
+    background-color: #FFFFFF;
+}
+.linha2 {
+    display: table-row;
+    margin: 1px;
+    border-bottom-color: #00FF33;
+    background-color: fafafa;
+}

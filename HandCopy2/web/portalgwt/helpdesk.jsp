@@ -1,0 +1,1 @@
+<iframe src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqtr1tu4l10064vlqkctu3klagutflf7sq0l5omb679pvmjdvqfihpjs23l66j24soqun7ps1va4udqp2s1u0tpfq6f1gkr9gi5blb9659o2sl42vuatkhu7g5d2mdjtutgmr96cpkg9ju47om32fcqraodggh1de6g07acl44heh55te8pvcohvopio&amp;w=200&amp;h=60" allowtransparency="true" frameborder="0" height="60" width="200"></iframe>

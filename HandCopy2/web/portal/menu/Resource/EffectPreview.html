@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+<META NAME="Generator" CONTENT="EditPlus">
+<META NAME="Author" CONTENT="">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<!-- saved from url=(0014)about:internet -->
+<SCRIPT LANGUAGE="JavaScript" sothinklib="steffie;steffrect;steffslip" src="js/stmenu.js" ></SCRIPT>
+</HEAD>
+
+<BODY style="font-size:10pt;border-style:none;background-color:RGB(199,211,234);overflow:hidden">
+<div id="dv_fltC" style="position:absolute;top:0px;left:0px;width:80px;visibility:visible;overflow:hidden;">
+<table bgcolor="#CADAED" style="border:1px solid #999999;font:9pt Arial;color:#999999;" width=80 height=26>
+<tr><td align="center">Menu&nbsp;Item</td></tr>
+<tr><td align="center">Menu&nbsp;Item</td></tr>
+<tr><td align="center">Menu&nbsp;Item</td></tr>
+<tr><td align="center">Menu&nbsp;Item</td></tr>
+</table>
+</div>
+<div style="position:absolute;top:0px;left:0px;color:red;" id="logdv"></div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+/*=======Ver: 8.0.70612========*/
+onerror=function(){return true}
+document.oncontextmenu=function(){return false;}
+var runTid=0;
+var effShow="";
+var effHide="";
+var effShadow="";
+var effDur=500;
+var container=document.all("dv_fltC");
+//0:show 1:hide 2:shadow
+function setFilter(eff,i,sp,f)
+{
+	clearTimeout(runTid);
+	if(effShow)
+		effShow.fbStop();
+	if(effHide)
+		effHide.fbStop();
+	switch(f)
+	{
+		case 0:case 1:
+			effDur=(110-sp)*10;
+			if(f)
+				effHide=_STNS.EFFECT.foGetEff(eff,"dv_fltC",window,effDur,i);
+			else
+				effShow=_STNS.EFFECT.foGetEff(eff,"dv_fltC",window,effDur,i);
+			break;
+		case 2:
+			if(_STNS.bIsIE&& _STNS.oNav.version>=5.5)
+				effShadow=eff;
+			break;
+	}
+	container.style.filter=effShadow;
+	if(effShow)
+		if(!effShow.fbSet())
+			effShow="";
+	if(effHide)
+		if(!effHide.fbSet())
+			effHide="";
+	return true;
+}
+
+//0:show 1:hide 2:show&hide
+function execEffect(f)
+{	
+	clearTimeout(runTid);
+	if(effShow)
+		effShow.fbStop();
+	if(effHide)
+		effHide.fbStop();		
+	switch(f)
+	{
+		case 0:
+			if(container.style.visibility!="hidden")
+				container.style.visibility="hidden";
+			if(effShow)
+			{
+				effShow.fbApply();
+				effShow.fbSetStyle("visibility:visible");
+				effShow.fbPlay();
+			}
+			else
+				container.style.visibility="visible";
+			break;
+		case 1:
+			if(container.style.visibility!="visible")
+				container.style.visibility="visible";
+			if(effHide)
+			{
+				effHide.fbApply();
+				effHide.fbSetStyle("visibility:hidden");
+				effHide.fbPlay();
+			}
+			else
+				container.style.visibility="hidden";
+			runTid=setTimeout("container.style.visibility='visible'",effDur+500);		
+			break;
+		case 2:
+			execEffect(1);
+			runTid=setTimeout("execEffect(0)",effDur+500);		
+			break;
+	}
+}
+function trace(s)
+{
+	document.all('logdv').innerText+=s+";";
+}
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0">
+	<parameter name="col_nr_id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select cot.ser_tx_nome, (cot.coc_nr_saldo-sol.solicitado) as qnt from (
+select ser.ser_nr_id, sum(sol.sol_nr_quantidade) solicitado
+from handcopy2.ser_servico ser, handcopy2.sol_solicitacao sol
+where sol.col_nr_id=$P{col_nr_id} and ser.ser_nr_id=sol.ser_nr_id group by ser.ser_nr_id) sol,
+(
+select ser.ser_nr_id, ser.ser_tx_nome, coc.coc_nr_saldo
+from handcopy2.coc_cota_colaborador coc, handcopy2.ser_servico ser
+where coc.col_nr_id=$P{col_nr_id} and coc.ser_nr_id=ser.ser_nr_id) cot
+where sol.ser_nr_id = cot.ser_nr_id
+order by ser_tx_nome]]>
+	</queryString>
+	<field name="ser_tx_nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qnt" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="2" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Serviço]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="2" width="100" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saldo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="1" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ser_tx_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$F{qnt}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

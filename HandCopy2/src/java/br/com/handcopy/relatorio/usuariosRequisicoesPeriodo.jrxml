@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<parameter name="nomeUsuario" class="java.lang.String"/>
+	<parameter name="dataSolicitacao" class="java.lang.String"/>
+	<parameter name="empresa" class="java.lang.String"/>
+	<parameter name="setor" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/backup/NovosProjetos/Aparato/HandCopy2/src/java/br/com/handcopy/relatorio/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dtInicio" class="java.lang.String"/>
+	<parameter name="dtFim" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from handcopy2.vw_col_colaborador order by col_tx_nome asc]]>
+	</queryString>
+	<field name="col_nr_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="col_tx_nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="col_tx_login" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="col_tx_status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="col_tx_email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="nomeUsuario" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="134" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="2" width="227" height="30"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HandCopy]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="32" width="360" height="23"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sistema de Solicitação de Requisição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="2" width="75" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Emissão:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="3" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{dataSolicitacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="59" width="359" height="20"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{empresa}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="5" y="53" width="548" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="526" y="32" width="27" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="452" y="32" width="75" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="85" width="546" height="23"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Requisições por Período:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="165" y="110" width="81" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{dtInicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="298" y="110" width="83" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{dtFim}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="265" y="110" width="18" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[a]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="0" width="59" height="23"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuário:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="6" y="23" width="548" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="63" y="2" width="234" height="21"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col_tx_nome}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="7" y="23" width="546" height="17"/>
+				<subreportParameter name="dtInicio">
+					<subreportParameterExpression><![CDATA[$P{dtInicio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dtFim">
+					<subreportParameterExpression><![CDATA[$P{dtFim}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="col_nr_id">
+					<subreportParameterExpression><![CDATA[$F{col_nr_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "subUsuariosRequisicoesPeriodo.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

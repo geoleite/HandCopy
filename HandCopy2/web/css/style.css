@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+#topo{
+wsidth:1024px;
+height:160px;
+background:url(../images/topo.png) no-repeat center;
+}
+#container{
+width:1024px;
+margin:0 auto;
+background:url(../images/bg1.png) repeat-x;
+}
+#subtopo_menu{
+	width:1024px;
+	height:70px;
+	background: url(../images/menu.png) center no-repeat;
+}
+
+
+#conteudo{
+width:1024px;
+background:url(../images/conteudo.png) repeat-y center;
+
+padding-left:8px;
+}
+#rodape{
+width:1024px;
+height:40px;
+background:url(../images/rodape.png) no-repeat center;
+text-align:center;
+}
+
